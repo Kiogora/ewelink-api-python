@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import Tuple
 
 class DeviceType(Enum):
     UNKNOWN = 0
@@ -62,7 +63,7 @@ class Power(Enum):
     def __init__(self, *args) -> None:
         self.channels = tuple()
 
-    def __getitem__(self, channels: tuple[int, ...] | int):
+    def __getitem__(self, channels: Tuple[int, ...] | int):
         self.channels = channels if isinstance(channels, tuple) else (channels,)
         return self
 
